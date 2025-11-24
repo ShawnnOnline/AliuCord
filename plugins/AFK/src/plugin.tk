@@ -1,0 +1,71 @@
+package com.shawnn.plugins
+
+import com.aliucord.*
+import com.aliucord.annotations.AliucordPlugin
+import com.aliucord.entities.Plugin
+import com.aliucord.patcher.PreHook
+import com.discord.api.message.Message
+import com.discord.utilities.rest.RestAPI
+import com.discord.utilities.locale.LocaleManager
+import com.discord.stores.StoreStream
+
+@AliucordPlugin
+class PluginAFK : Plugin() {
+
+    private var afk = false
+
+    private fun toggleMessage(lang: String): String {
+        return when (lang) {
+            "fr" -> if (afk) "Mode AFK activé." else "Mode AFK désactivé."
+            "es" -> if (afk) "Modo AFK activado." else "Modo AFK desactivado."
+            "de" -> if (afk) "AFK-Modus aktiviert." else "AFK-Modus deaktiviert."
+            "it" -> if (afk) "Modalità AFK attivata." else "Modalità AFK disattivata."
+            else -> if (afk) "AFK mode enabled." else "AFK mode disabled."
+        }
+    }
+
+    private fun afkReply(lang: String): String {
+        return when (lang) {
+            "fr" -> "Je suis AFK, rappelle moi plus tard, en attendant, mange une pizza 🍕😋 !"
+            "es" -> "Estoy AFK, recuérdame más tarde, mientras tanto come una pizza 🍕😋 !"
+            "de" -> "Ich bin AFK, erinnere mich später, iss inzwischen eine Pizza 🍕😋 !"
+            "it" -> "Sono AFK, ricordami più tardi, nel frattempo mangia una pizza 🍕😋 !"
+            else -> "I'm AFK, remind me later, meanwhile eat a pizza 🍕😋 !"
+        }
+    }
+
+    override fun start(ctx: PluginContext) {
+
+        commands.registerCommand("afk", null) {
+            afk = !afk
+            val lang = LocaleManager.getLocale().language
+            CommandResult(toggleMessage(lang))
+        }
+
+        patcher.patch(
+            com.discord.stores.StoreMessages::class.java.getDeclaredMethod(
+                "handleIncomingMessage",
+                Message::class.java
+            ),
+            PreHook { p ->
+                if (!afk) return@PreHook
+                val m = p.args[0] as Message
+                val me = StoreStream.getUsers().me.id
+                val mention = m.mentions.any { it.id == me }
+                val dm = StoreStream.getChannels().privateChannelIds.contains(m.channelId)
+                if (!mention && !dm) return@PreHook
+                val lang = LocaleManager.getLocale().language
+                RestAPI.getApi().sendMessage(
+                    m.channelId,
+                    afkReply(lang),
+                    null
+                ).subscribe({})
+            }
+        )
+    }
+
+    override fun stop(ctx: PluginContext) {
+        patcher.unpatchAll()
+        commands.unregisterAll()
+    }
+}
