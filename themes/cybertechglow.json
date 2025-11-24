@@ -1,0 +1,55 @@
+{
+  "name": "CyberTech Glow",
+  "author": "Shawnn",
+  "color": {
+    "background": "#040414",
+    "backgroundSecondary": "#090926",
+    "backgroundTertiary": "#12123A",
+
+    "accent": "#8E5CFF",
+    "accentDark": "#6940CC",
+    "accentBright": "#A977FF",
+
+    "primaryHeader": "#0F0F33",
+    "secondaryHeader": "#1C1C4A",
+
+    "textNormal": "#E6D9FF",
+    "textMuted": "#9C90CC",
+    "textLink": "#A66CFF",
+
+    "inputBackground": "#1A1A3D",
+
+    "buttonPositiveBackground": "#3A8BFF",
+    "buttonPositiveText": "#FFFFFF",
+
+    "buttonDangerBackground": "#B347FF",
+    "buttonDangerText": "#FFFFFF",
+
+    "success": "#4CE2FF",
+    "danger": "#C458FF",
+    "warning": "#BF89FF",
+
+    "scrollbar": "#5C5CBF",
+
+    "interactiveNormal": "#C1B3FF",
+    "interactiveHover": "#D8CCFF",
+    "interactiveActive": "#FFFFFF",
+    "interactiveMuted": "#6F6FA8",
+
+    "mentionBackground": "#A15CFF33",
+    "mentionForeground": "#D7B0FF",
+
+    "channelUnread": "#A77DFF",
+    "channelSelected": "#C79AFF",
+
+    "tabActive": "#9A66FF",
+    "tabInactive": "#554488",
+
+    "activityCardBackground": "#101035",
+    "modalBackground": "#0E0E26",
+
+    "inputPlaceholderText": "#7770AA",
+    "deprecatedCardBg": "#0F0F33",
+    "deprecatedCardBorder": "#3A2B66"
+  }
+}
