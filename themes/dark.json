@@ -1,0 +1,55 @@
+{
+  "name": "FullDarkOLED",
+  "author": "Shawnn",
+  "color": {
+    "background": "#000000",
+    "backgroundSecondary": "#050505",
+    "backgroundTertiary": "#0A0A0A",
+
+    "primaryHeader": "#000000",
+    "secondaryHeader": "#050505",
+
+    "textNormal": "#E0E0E0",
+    "textMuted": "#909090",
+    "textLink": "#9A9A9A",
+
+    "accent": "#1A1A1A",
+    "accentDark": "#101010",
+    "accentBright": "#2A2A2A",
+
+    "inputBackground": "#080808",
+    "inputPlaceholderText": "#555555",
+
+    "buttonPositiveBackground": "#1F1F1F",
+    "buttonPositiveText": "#E0E0E0",
+
+    "buttonDangerBackground": "#2A2A2A",
+    "buttonDangerText": "#FFFFFF",
+
+    "success": "#2F2F2F",
+    "danger": "#3C3C3C",
+    "warning": "#404040",
+
+    "scrollbar": "#222222",
+
+    "interactiveNormal": "#C0C0C0",
+    "interactiveHover": "#FFFFFF",
+    "interactiveActive": "#FFFFFF",
+    "interactiveMuted": "#7A7A7A",
+
+    "mentionBackground": "#FFFFFF0D",
+    "mentionForeground": "#EAEAEA",
+
+    "channelUnread": "#A5A5A5",
+    "channelSelected": "#FFFFFF",
+    
+    "tabActive": "#2A2A2A",
+    "tabInactive": "#111111",
+
+    "modalBackground": "#000000",
+    "activityCardBackground": "#050505",
+
+    "deprecatedCardBg": "#000000",
+    "deprecatedCardBorder": "#1A1A1A"
+  }
+}
